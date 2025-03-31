@@ -11,7 +11,6 @@ class ArrayOfWords:
             n+=1
         return finalWord
             
-            
-
-AOW = ArrayOfWords()
-print(AOW.concatenate_words(['yoda', 'best', 'has']))
+if __name__ == "__main__":
+    AOW = ArrayOfWords()
+    print(AOW.concatenate_words(['yoda', 'best', 'has']))
