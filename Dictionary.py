@@ -13,8 +13,8 @@ class Dictionary:
             return "Can't find entry for " + word                    
 
 
-##
-##obj = Dictionary()
-##obj.newentry('Apple','A fruit that grows on trees')
-##print(obj.look('Apple'))
-##print(obj.look('Banana'))
+if __name__ == "__main__":
+    obj = Dictionary()
+    obj.newentry('Apple','A fruit that grows on trees')
+    print(obj.look('Apple'))
+    print(obj.look('Banana'))
