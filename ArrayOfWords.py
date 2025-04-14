@@ -6,10 +6,13 @@ class ArrayOfWords:
     def concatenate_words(self, wordsArray):
         finalWord=''
         n=0
-        for word in wordsArray:
-            finalWord+= word[n]
-            n+=1
-        return finalWord
+        try:
+            for word in wordsArray:
+                finalWord+= word[n]
+                n+=1
+            return finalWord
+        except IndexError:
+            return "Error, out of bounds (not enough letters)"
             
 if __name__ == "__main__":
     AOW = ArrayOfWords()

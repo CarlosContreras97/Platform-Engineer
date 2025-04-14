@@ -4,7 +4,7 @@ class Dictionary:
         self.dict={}
 
     def newentry(self, word, entry):
-        self.dict.update({word:entry})
+        self.dict[word]=entry
                 
     def look(self,word):
         if word in self.dict:
