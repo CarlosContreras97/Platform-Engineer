@@ -31,9 +31,9 @@ pipeline {
             steps {
                 script {
                         sh '''
-                            eb init -p python-3.9 $APP_NAME --region $AWS_REGION  // Initialize Elastic Beanstalk app
-                            eb use $ENV_NAME  // Set the environment
-                            eb deploy  // Deploy to Elastic Beanstalk                        '''
+                            /home/ec2-user/.ebcli-virtual-env/executables/eb init -p python-3.9 $APP_NAME --region $AWS_REGION  // Initialize Elastic Beanstalk app
+                            /home/ec2-user/.ebcli-virtual-env/executables/eb use $ENV_NAME  // Set the environment
+                            /home/ec2-user/.ebcli-virtual-env/executables/eb deploy  // Deploy to Elastic Beanstalk                        '''
                 }
                 
             }
