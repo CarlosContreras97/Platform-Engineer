@@ -5,7 +5,7 @@ pipeline {
         AWS_REGION = 'us-east-2'  // Set your AWS region
         APP_NAME = 'PlatformEngineeringCourse'  // Set your Elastic Beanstalk app name
         ENV_NAME = 'flask-env'  // Set your Elastic Beanstalk environment name
-
+        PATH = "/var/lib/jenkins/.local/bin:${env.PATH}"/var/lib/jenkins/.local/bin/eb --version
     }
     stages {
         stage(Checkout){
