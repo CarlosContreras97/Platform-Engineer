@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage(Checkout){
             steps {
-                git 'https://github.com/CarlosContreras97/Platform-Engineer.git'  
+                git branch: 'main', url: 'https://github.com/CarlosContreras97/Platform-Engineer.git'  
             }
         }
         stage('Install Dependencies') {
