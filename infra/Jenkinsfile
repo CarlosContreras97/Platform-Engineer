@@ -32,8 +32,9 @@ pipeline {
                 script {
                         sh '''
                             eb init -p python-3.9 $APP_NAME --region $AWS_REGION
-                            eb use $ENV_NAME  // Set the environment
-                            eb deploy  // Deploy to Elastic Beanstalk                        '''
+                            eb use $ENV_NAME  
+                            eb deploy                        
+                        '''
                 }
                 
             }
