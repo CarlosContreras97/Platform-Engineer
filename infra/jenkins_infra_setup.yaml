@@ -56,7 +56,7 @@ Parameters:
       - d2.2xlarge
       - d2.4xlarge
       - d2.8xlarge
-    Default: t3.small
+    Default: t2.micro
     ConstraintDescription: must be a valid EC2 instance type.
 
   SSHLocation:
@@ -70,7 +70,7 @@ Parameters:
 
   ImageId: 
     Type: String
-    Default: ami-0f6c1051253397fef  
+    Default: ami-060a84cbcb5c14844
 
   Subnets:
     Type: List<AWS::EC2::Subnet::Id>
@@ -100,7 +100,7 @@ Resources:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: !Ref SSHLocation
+          CidrIp: !Ref SSHLocation    
 
 Outputs:
   InstanceId:
