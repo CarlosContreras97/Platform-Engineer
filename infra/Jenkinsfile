@@ -1,22 +1,47 @@
 pipeline {
     agent any
 
+    environment{
+        AWS_REGION = 'us-east-2'  // Set your AWS region
+        APP_NAME = 'PlatformEngineeringCourse'  // Set your Elastic Beanstalk app name
+        ENV_NAME = 'flask-env'  // Set your Elastic Beanstalk environment name
+
+    }
     stages {
-        stage('Build') {
+        stage(Checkout){
             steps {
-                echo 'Building..'
-                echo "validation"
+                git 'https://github.com/CarlosContreras97/Platform-Engineer.git'  
             }
         }
-        stage('Test') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Testing..'
+                script {
+                    sh 'pip install -r requirements.txt'  // Install dependencies
+                }
             }
         }
-        stage('Deploy') {
+        stage('Create Deployment Package') {
             steps {
-                echo 'Deploying....'
+                script {
+                    sh 'zip -r my-app.zip *'  // Zip the application files
+                }
             }
+        }
+        stage('Deploy to Elastic Beanstalk') {
+            steps {
+                script {
+                        sh '''
+                            eb init -p python-3.9 $APP_NAME --region $AWS_REGION  // Initialize Elastic Beanstalk app
+                            eb use $ENV_NAME  // Set the environment
+                            eb deploy  // Deploy to Elastic Beanstalk                        '''
+                }
+                
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()  // Clean the workspace after the build
         }
     }
 }
